@@ -1,35 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         tools:context=".MainActivity">
-
-    <com.google.android.material.appbar.AppBarLayout
+    <TextView
+            android:id="@+id/app_header"  android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="School Time"  android:textSize="20sp"  android:textStyle="bold"  android:textColor="@color/primary"  app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    <LinearLayout
             android:layout_width="match_parent"
-            android:fitsSystemWindows="true"
-    >
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"/>
+        <TextView
+                android:id="@+id/current_class_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Class"
+                android:textSize="18sp"
+                android:padding="16dp" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <TextView
+                android:id="@+id/current_class_var_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Class Var"
+                android:textSize="16sp"
+                android:padding="8dp" />
 
-    <include layout="@layout/content_main"/>
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time Left:"
+                    android:textSize="16sp"
+                    android:padding="8dp" />
+
+            <TextView
+                    android:id="@+id/time_left_var_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="8dp" />
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/next_class_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next Class"
+                android:textSize="18sp"
+                android:padding="16dp" />
+
+        <TextView
+                android:id="@+id/next_class_var_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next Class Var"
+                android:textSize="16sp"
+                android:padding="8dp" />
+
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/fab_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="@dimen/fab_margin"
-            android:layout_marginBottom="16dp"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:layout_margin="16dp"
+            android:contentDescription="Settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_settings" />
+</androidx.constraintlayout.widget.ConstraintLayout>

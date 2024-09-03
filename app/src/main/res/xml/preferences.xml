@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+            android:key="scource_url"
+            android:title="Bell Schedule Source"
+            android:summary="Enter the URL"
+            android:inputType="textUri" />
+</PreferenceScreen>
