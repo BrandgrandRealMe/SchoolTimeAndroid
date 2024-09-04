@@ -7,37 +7,28 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="Bell Schedule"
             android:textSize="24sp"
             android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"/>
 
     <FrameLayout
-            android:id="@+id/settings_container"
+            android:id="@+id/schedule_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
-            />
+            android:layout_above="@id/btn_exit"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
-    <LinearLayout
+    <Button
+            android:id="@+id/btn_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:text="Exit"
             android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp" />
 
-        <Button
-                android:id="@+id/btn_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save"/>
-
-        <Button
-                android:id="@+id/btn_exit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Exit"
-                android:layout_marginStart="16dp"/>
-    </LinearLayout>
 </RelativeLayout>

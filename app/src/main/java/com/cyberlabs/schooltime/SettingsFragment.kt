@@ -1,11 +1,11 @@
-package com.cyberlabs.schooltime;
+package com.cyberlabs.schooltime
 
-import android.os.Bundle;
-import androidx.preference.PreferenceFragmentCompat;
+import android.os.Bundle
+import com.cyberlabs.schooltime.MainActivity
+import androidx.preference.PreferenceFragmentCompat
 
-public class SettingsFragment extends PreferenceFragmentCompat {
-    @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.preferences, rootKey);
+class SettingsFragment : PreferenceFragmentCompat() {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.preferences, rootKey)
     }
 }

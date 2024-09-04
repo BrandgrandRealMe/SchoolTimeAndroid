@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference
-            android:key="scource_url"
-            android:title="Bell Schedule Source"
-            android:summary="Enter the URL"
-            android:inputType="textUri" />
+            android:key="source_url"
+            android:title="Bell Schedule Source URL"
+            android:summary="A link to the source"
+            android:defaultValue="https://belljsonghs.pages.dev/api/bell.json" />
 </PreferenceScreen>
