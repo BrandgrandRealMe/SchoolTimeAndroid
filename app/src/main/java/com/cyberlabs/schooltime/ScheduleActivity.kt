@@ -1,8 +1,10 @@
 package com.cyberlabs.schooltime;
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
@@ -24,6 +26,12 @@ class ScheduleActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             updateSchedule(scheduleParser)
+        }
+
+        val exitButton: Button = findViewById(R.id.btn_exit)
+        exitButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 

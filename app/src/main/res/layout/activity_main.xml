@@ -8,7 +8,7 @@
     <TextView
             android:id="@+id/app_header"  android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="School Time"  android:textSize="20sp"  android:textStyle="bold"  android:textColor="@color/primary"  app:layout_constraintTop_toTopOf="parent"
+            android:text="School Time"  android:textSize="45sp"  android:textStyle="bold"  android:textColor="@color/primary"  app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
     <LinearLayout
@@ -16,21 +16,27 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
-
+        <TextView
+                android:id="@+id/current_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time: Loading"
+                android:textSize="50sp"
+                android:padding="16dp" />
         <TextView
                 android:id="@+id/current_class_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Current Class"
-                android:textSize="18sp"
+                android:textSize="35sp"
                 android:padding="16dp" />
 
         <TextView
                 android:id="@+id/current_class_var_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Current Class Var"
-                android:textSize="16sp"
+                android:text="Loading"
+                android:textSize="45sp"
                 android:padding="8dp" />
 
         <LinearLayout
@@ -42,15 +48,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Time Left:"
-                    android:textSize="16sp"
-                    android:padding="8dp" />
+                    android:textSize="35sp"
+                    android:padding="20dp" />
 
             <TextView
                     android:id="@+id/time_left_var_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TIME LEFT"
-                    android:textSize="16sp"
+                    android:text="Loading"
+                    android:textSize="35sp"
                     android:padding="8dp" />
         </LinearLayout>
 
@@ -59,37 +65,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Next Class"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:padding="16dp" />
 
         <TextView
                 android:id="@+id/next_class_var_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next Class Var"
-                android:textSize="16sp"
+                android:text="Loading"
+                android:textSize="35sp"
                 android:padding="8dp" />
 
     </LinearLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_settings"
+    <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:contentDescription="Settings"
-            android:background="@color/primary"
+            android:layout_marginRight="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_settings" />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="Schedule"
-            android:background="@color/primary"
-            app:layout_constraintEnd_toStartOf="@id/fab_settings"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_schedule" />
+            app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:contentDescription="Settings"
+                android:background="@color/primary"
+                app:srcCompat="@drawable/ic_settings" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="65dp"
+                android:contentDescription="Schedule"
+                android:background="@color/primary"
+                app:srcCompat="@drawable/ic_schedule" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

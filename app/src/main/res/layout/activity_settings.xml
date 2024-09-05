@@ -4,13 +4,27 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
+            android:id="@+id/app_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="School Time"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_centerHorizontal="true"
+    />
+    <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
             android:textSize="24sp"
+            android:layout_below="@id/app_header"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"/>
+    />
 
     <FrameLayout
             android:id="@+id/settings_container"
