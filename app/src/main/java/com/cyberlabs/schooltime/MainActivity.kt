@@ -246,10 +246,8 @@ class MainActivity : AppCompatActivity() {
         val nextClassInTextTitle: TextView = findViewById(R.id.time_left_text)
         val periodTextTitle: TextView = findViewById(R.id.current_class_text)
         val nextPeriodTextTitle: TextView = findViewById(R.id.next_class_text)
-        val announcementText: TextView = findViewById(R.id.announcement_text)
         val announcementFrame: FrameLayout = findViewById(R.id.announcement_frame)
-
-
+        val announcementText: TextView = findViewById(R.id.announcement_text)
 
         val timeText: TextView = findViewById(R.id.current_time_text)
 
@@ -299,12 +297,23 @@ class MainActivity : AppCompatActivity() {
                 periodTextTitle.visibility = View.GONE
                 nextPeriodTextTitle.visibility = View.GONE
                 announcementFrame.visibility = View.VISIBLE
-                announcementText.text = "Passing Period!"
+                announcementText.visibility = View.VISIBLE
+
+                announcementText.text = "Passing Period!\nGet To Class!"
             }
 
 
         } else {
-            periodText.text = "Loading Schedule"
+                nextClassInText.visibility = View.GONE
+                periodText.visibility = View.GONE
+                nextPeriodText.visibility = View.GONE
+                nextClassInTextTitle.visibility = View.GONE
+                periodTextTitle.visibility = View.GONE
+                nextPeriodTextTitle.visibility = View.GONE
+                announcementFrame.visibility = View.VISIBLE
+                announcementText.visibility = View.VISIBLE
+
+                announcementText.text = "School Is Out!"
         }
     } else {
             nextClassInText.visibility = View.GONE
@@ -314,7 +323,9 @@ class MainActivity : AppCompatActivity() {
             periodTextTitle.visibility = View.GONE
             nextPeriodTextTitle.visibility = View.GONE
             announcementFrame.visibility = View.VISIBLE
-            announcementText.text = "School Is Out!"
+            announcementText.visibility = View.VISIBLE
+
+            announcementText.text = "Loading Classes!"
     }
     }
 }

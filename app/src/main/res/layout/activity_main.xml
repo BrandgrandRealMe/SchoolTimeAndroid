@@ -5,29 +5,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-    <FrameLayout
-            android:id="@+id/announcement_frame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-                android:id="@+id/announcement_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Loading..."
-                android:textSize="20sp"
-                android:textColor="@color/primary"
-                android:padding="10dp"
-                android:visibility="invisible"
-                android:gravity="center" />
-
-    </FrameLayout>
     <TextView
             android:id="@+id/app_header"  android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,6 +24,29 @@
                 android:textColor="@color/primary_light"
                 android:textSize="50sp"
                 android:padding="16dp" />
+        <FrameLayout
+                android:id="@+id/announcement_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                    android:id="@+id/announcement_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loading..."
+                    android:textSize="20sp"
+                    android:textColor="@color/primary"
+                    android:padding="10dp"
+                    android:visibility="invisible"
+                    android:gravity="center" />
+
+        </FrameLayout>
         <TextView
                 android:id="@+id/current_class_text"
                 android:layout_width="wrap_content"
