@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <EditTextPreference
-            android:key="source_url"
-            android:title="Bell Schedule Source URL"
-            android:summary="A link to the source"
-            android:defaultValue="https://belljsonghs.pages.dev/api/bell.json" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="Settings">
+        <EditTextPreference
+                android:key="source_url"
+                android:title="Bell Schedule Source URL"
+                android:summary="A link to the source"
+                android:defaultValue="https://belljsonghs.pages.dev/api/bell.json"
+                app:layout="@layout/preference_with_link_icon" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Information">
+        <Preference
+                android:key="visit_github_repo"
+                android:title="Visit The Github Repo"
+                android:summary="Report Problems, Get help, and learn how to set up the app."
+                app:layout="@layout/preference_with_github_icon" />
+        <Preference
+                android:key="visit_fdroid"
+                android:title="Visit The App On F-Droid - Comming Soon™️"
+                android:summary="Learn More About The App Or Look For A Update."
+                app:layout="@layout/preference_with_fdroid_icon" />
+        <Preference
+                android:key="visit_discord"
+                android:title="Visit My Discord"
+                android:summary="Get support or chat on the discord"
+                app:layout="@layout/preference_with_discord_icon" />
+    </PreferenceCategory>
 </PreferenceScreen>
