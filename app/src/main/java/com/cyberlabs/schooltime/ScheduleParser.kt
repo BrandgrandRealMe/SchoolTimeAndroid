@@ -42,7 +42,7 @@ class ScheduleParser(private val context: Context) {
             val scale = context.resources.displayMetrics.density
             val paddingInPx = (paddingInDp * scale + 0.5f).toInt()
             textView.setPadding(paddingInPx, paddingInPx, paddingInPx, paddingInPx)
-
+            textView.textSize = 20F
             val layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT

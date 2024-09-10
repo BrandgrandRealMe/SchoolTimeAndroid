@@ -1,0 +1,1 @@
+Tracks classes, time left, next class, & schedule. Pulls data from your online JSON schedule.

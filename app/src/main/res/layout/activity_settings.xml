@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:text="Settings"
             android:textSize="24sp"
+            android:textColor="@color/secondary"
             android:layout_below="@id/app_header"
             android:layout_centerHorizontal="true"
     />

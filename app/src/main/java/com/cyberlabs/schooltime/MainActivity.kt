@@ -5,6 +5,8 @@ import com.cyberlabs.schooltime.Data
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
@@ -105,7 +107,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun parseBells(bellsArray: JSONArray): List<Bell> {
         val bells = mutableListOf<Bell>()
-        Log.d("Bells", bells.toString())
         for (i in 0 until bellsArray.length()) {
             val bellObject = bellsArray.getJSONObject(i)
             val bell = Bell(
@@ -239,6 +240,17 @@ class MainActivity : AppCompatActivity() {
         var nextClassIn: Long? = null
         var nextClassInString: String? = null
 
+        val nextClassInText: TextView = findViewById(R.id.time_left_var_text)
+        val periodText: TextView = findViewById(R.id.current_class_var_text)
+        val nextPeriodText: TextView = findViewById(R.id.next_class_var_text)
+        val nextClassInTextTitle: TextView = findViewById(R.id.time_left_text)
+        val periodTextTitle: TextView = findViewById(R.id.current_class_text)
+        val nextPeriodTextTitle: TextView = findViewById(R.id.next_class_text)
+        val announcementText: TextView = findViewById(R.id.announcement_text)
+        val announcementFrame: FrameLayout = findViewById(R.id.announcement_frame)
+
+
+
         val timeText: TextView = findViewById(R.id.current_time_text)
 
         checkForSettingsUpdate()
@@ -246,6 +258,7 @@ class MainActivity : AppCompatActivity() {
         timeText.text = "Time: ${getCurrentTimeAP()}" // This can still be in 12-hour format for display
 
         if (!isJsonEmpty(schedule)) {
+            if (isTimeBetween(currentTime, schedule.getString("start"), schedule.getString("end"))) {
             val scheduleData = Schedule(
                 schedule.getString("start"),
                 schedule.getString("end"),
@@ -256,7 +269,6 @@ class MainActivity : AppCompatActivity() {
                 val startTime = bell.startTime
                 val endTime = bell.stopTime
                 if (isTimeBetween(currentTime, startTime, endTime)) {
-                    println("found Class")
                     // Current time is between start and end time of this bell
                     currentClass = bell.title
                     nextClassIn = getTimeDifference(currentTime, endTime)
@@ -268,18 +280,41 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
+            if (currentClass != null) {
+                nextClassInText.visibility = View.VISIBLE
+                periodText.visibility = View.VISIBLE
+                nextPeriodText.visibility = View.VISIBLE
+                nextClassInTextTitle.visibility = View.VISIBLE
+                periodTextTitle.visibility = View.VISIBLE
+                nextPeriodTextTitle.visibility = View.VISIBLE
+                announcementFrame.visibility = View.GONE
+                nextClassInText.text = nextClassInString ?: "None"
+                periodText.text = currentClass ?: "None"
+                nextPeriodText.text = nextClass?.title ?: "None"
+            } else {
+                nextClassInText.visibility = View.GONE
+                periodText.visibility = View.GONE
+                nextPeriodText.visibility = View.GONE
+                nextClassInTextTitle.visibility = View.GONE
+                periodTextTitle.visibility = View.GONE
+                nextPeriodTextTitle.visibility = View.GONE
+                announcementFrame.visibility = View.VISIBLE
+                announcementText.text = "Passing Period!"
+            }
 
-            val nextClassInText: TextView = findViewById(R.id.time_left_var_text)
-            nextClassInText.text = nextClassInString ?: "None"
 
-            val periodText: TextView = findViewById(R.id.current_class_var_text)
-            periodText.text = currentClass ?: "None"
-
-            val nextPeriodText: TextView = findViewById(R.id.next_class_var_text)
-            nextPeriodText.text = nextClass?.title ?: "None"
         } else {
-            val periodText: TextView = findViewById(R.id.current_class_var_text)
             periodText.text = "Loading Schedule"
         }
+    } else {
+            nextClassInText.visibility = View.GONE
+            periodText.visibility = View.GONE
+            nextPeriodText.visibility = View.GONE
+            nextClassInTextTitle.visibility = View.GONE
+            periodTextTitle.visibility = View.GONE
+            nextPeriodTextTitle.visibility = View.GONE
+            announcementFrame.visibility = View.VISIBLE
+            announcementText.text = "School Is Out!"
+    }
     }
 }
