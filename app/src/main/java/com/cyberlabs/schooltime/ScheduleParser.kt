@@ -1,6 +1,7 @@
 package com.cyberlabs.schooltime
 
 import android.content.Context
+import android.graphics.Typeface
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,8 @@ class ScheduleParser(private val context: Context) {
             parseBells(jsonObject.getJSONArray("bells"))
         )
 
+        val currentTime = getCurrentTime()
+
         for (bell in schedule.bells) {
             val textView = TextView(context)
             textView.text = "${bell.title} ${formatTime(bell.startTime)} - ${formatTime(bell.stopTime)}"
@@ -48,6 +51,9 @@ class ScheduleParser(private val context: Context) {
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
             layoutParams.setMargins(0, 0, 0, 16) // Add some bottom margin for spacing
+            if (isTimeBetween(currentTime, bell.startTime, bell.stopTime)) {
+                textView.setTypeface(null, Typeface.BOLD)
+            }
 
             textView.layoutParams = layoutParams
             parent.addView(textView)
@@ -55,17 +61,3 @@ class ScheduleParser(private val context: Context) {
     }
 }
 
-    private fun parseBells(bellsArray: JSONArray): List<Bell> {
-        val bells = mutableListOf<Bell>()
-        for (i in 0 until bellsArray.length()) {
-            val bellObject = bellsArray.getJSONObject(i)
-            val bell = Bell(
-                bellObject.getInt("id"),
-                bellObject.getString("title"),
-                bellObject.getString("startTime"),
-                bellObject.getString("stopTime")
-            )
-            bells.add(bell)
-        }
-        return bells
-    }
