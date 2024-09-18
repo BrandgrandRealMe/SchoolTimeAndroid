@@ -22,6 +22,7 @@ import org.json.JSONObject
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class MainActivity : AppCompatActivity() {
+    var nextClass: Bell? = null
     private var created = false
     private var url = ""
     private var schedule = JSONObject()
@@ -139,6 +140,7 @@ class MainActivity : AppCompatActivity() {
                     nextPeriodTextTitle.visibility = View.VISIBLE
                     announcementFrame.visibility = View.GONE
 
+                    nextClass = classInfo.nextClass
                     periodText.text = classInfo.currentClass.title
                     nextPeriodText.text = classInfo.nextClass?.title ?: "None"
                     nextClassInText.text = classInfo.timeUntilNextClass?.let { formatSecondsTime(it) } ?: "None"
@@ -152,8 +154,12 @@ class MainActivity : AppCompatActivity() {
                     nextPeriodTextTitle.visibility = View.GONE
                     announcementFrame.visibility = View.VISIBLE
                     announcementText.visibility = View.VISIBLE
-
-                    nextClassInText.text = classInfo.timeUntilNextClass?.let { formatSecondsTime(it) } ?: "None"
+                    if (nextClass !== null) {
+                        nextClassInText.visibility = View.VISIBLE
+                        nextClassInText.text = formatSecondsTime(getTimeDifference(currentTime, nextClass!!.startTime))
+                    } else {
+                        nextClassInText.visibility = View.GONE
+                    }
                     announcementText.text = "Passing Period!\nGet To Class!"
                 }
             } else {
